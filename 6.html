@@ -1,0 +1,54 @@
+<html>
+    <body>
+        <div id="app"></div>
+        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <!-- Babel Script -->
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/jsx">
+        const app = document.getElementById("app");
+
+        function Header({ title }) {
+            console.log(title);
+            return <h1>{title}</h1>;
+        }
+
+        function Property(props) {
+            return <h1>{props.title}</h1>;
+        }
+
+        function Literal({title}) {
+            return <h1>{`Cool ${title}`}</h1>;
+        }
+
+        function createTitle(title) {
+            if (title) {
+                return title;
+            } else {
+                return 'Default title';
+            }
+        }
+
+        function HomePage() {
+            const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+            return (
+                <div>
+                    <Header title="React" />
+                    <ul>
+                        {names.map((name) => (
+                            <li key={name}>{name}</li>
+                        ))}
+                    </ul>
+                </div>
+            );
+        }
+
+        function Ternary({ title }) {
+            return <h1>{title ? title : 'Default Title'}</h1>;
+        }
+
+        const root = ReactDOM.createRoot(app);
+        root.render(<HomePage />);
+        </script>
+    </body>
+</html>
